@@ -10,6 +10,7 @@ export default {
   emits: ["submit:contact", "delete:contact"],
   props: {
     contact: { type: Object, required: true },
+    isCreated: { type: Boolean, default: false },
   },
   data() {
     const contactFormSchema = yup.object().shape({
@@ -124,6 +125,7 @@ export default {
         type="button"
         class="ml-2 btn btn-danger"
         @click="deleteContact"
+        v-show="!isCreated"
       >
         Xóa
       </button>
